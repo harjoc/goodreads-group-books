@@ -38,7 +38,13 @@ for user in os.listdir(shelves_dir):
 						print r
 						sys.exit(1)
 					id = int(book['id']['#text'].encode('utf-8'))
+					
+					#print >>sys.stderr, "  ", id
+					
 					title = book['title_without_series'].encode('utf-8')
+					publication_year = (book['publication_year'] or '-').encode('utf-8')
+					average_rating = (book['average_rating'] or '-').encode('utf-8')
+					ratings_count = (book['ratings_count'] or '-').encode('utf-8')
 					
 					# same array/object issue as the one above for review
 					aut_lst = book['authors']
@@ -47,6 +53,7 @@ for user in os.listdir(shelves_dir):
 
 					author = aut_lst[0]['author']['name'].encode('utf-8')
 					
-					print "%010d\t%s - %s" % (id, author, title)
+					print "%010d\t% 4s\t% 4s\t% 7s   %s - %s" % (id, publication_year, average_rating, 
+							ratings_count, title, author)
 			except EOFError:
 				break
