@@ -1,0 +1,6 @@
+*.swp
+*.pyc
+*.html
+group_*
+shelves_*
+config.py

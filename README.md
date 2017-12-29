@@ -11,19 +11,12 @@ pip install goodreads
 
 ## Usage
 
-First list the group members: `python gb.py members`. This will save them to the group_fn listed at the top of gb.py.
+Copy config-example.py to config.py and edit it. 
 
-Then list the books: `python gb.py`. This will create pickles for each user in shelves/<userid>.
+Then list the group members: `./listbooks.py members`. This will save them to the group_fn listed in config.py.
 
-You can load the pickles in python:
+Then list the books: `./listbooks.py`. This will create pickles for each user in shelves_dir/<userid>.
 
-```
-import pickle
+Then create a html list sorted by frequency: `./sort.py shelves_dir > top.html`.
 
-f=open('shelves/123/1', 'rb')
-while True:
-  try:
-    page = pickle.load(f)
-  except EOFError:
-    break
-```
+There is a default of `min_reads = 5` in sort.py so books with less reads don't show up in the output. You can change it as needed.
