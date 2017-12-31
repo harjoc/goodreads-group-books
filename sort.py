@@ -78,10 +78,6 @@ td {
     text-align: right ! important;
 }
 
-.average {
-    text-align: right ! important;
-}
-
 .year {
     text-align: right ! important;
 }
@@ -126,7 +122,6 @@ elif mode == 'topbooks':
         <tr>
         <th>Reads
         <th>Year
-        <th>Average
         <th>Ratings
         <th>Book
         """
@@ -233,16 +228,15 @@ elif mode == 'topbooks':
         b = bookmap[id]
 
         if fmt == 'text':
-            print "%010d  % 4s  % 4s  % 7s  %s - %s" % (cnt, b[0], b[1], b[2], b[3], b[4], b[5])
+            print "%010d  % 4s  % 7s  %s - %s" % (cnt, b[0], b[1], b[3], b[4], b[5])
         elif fmt == 'html':
             print """
                 <tr>
                     <td class="reads">%d
                     <td class="year">%s
                     <td class="ratings">%s
-                    <td class="average">%s
                     <td class="book"><a href="%s">%s - %s</a>
-                 """ % (cnt, b[1], b[2], b[3], b[6], b[4], b[5])
+                 """ % (cnt, b[1], b[3], b[6], b[4], b[5])
 else:
     raise Exception('unknown mode: ' + mode)
     
