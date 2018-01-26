@@ -15,8 +15,8 @@ per_page = 200
 
 gc = client.GoodreadsClient(cfg.api_key, cfg.api_secret)
 
-def delay():
-    r = random.randint(11, 19)
+def delay(secs=11):
+    r = random.randint(secs, secs+8)
     for i in reversed(range(r)):
         sys.stderr.write('\r%d... ' % i)
         sys.stderr.flush()
@@ -111,12 +111,19 @@ def query_shelves(user_ids):
 
                     open(all, 'wb').close()
                     open(dir + '/_page_err', 'wb').close()
-
+                    delay(100)
                     break
 
                 print '  checking if private'
-                resp = gc.request("/user/show/%s.xml" % user, {})
-                delay()
+
+                try:
+                    resp = gc.request("/user/show/%s.xml" % user, {})
+                    delay()
+                except GoodreadsRequestException:
+                    open(all, 'wb').close()
+                    open(dir + '/_private_err', 'wb').close()
+                    delay(100)
+                    break
                 
                 if 'private' in resp['user'] and resp['user']['private'] == 'true':
                     print '  private'
@@ -126,8 +133,12 @@ def query_shelves(user_ids):
                     
                     break
                     
-                print '  review/list failed but user is not private, so throwing'
-                raise e
+                print '  review/list failed but user is not private, skipping'
+
+                open(all, 'wb').close()
+                open(dir + '/_first_err', 'wb').close()
+                delay(950)
+                break
             
             reviews = resp['reviews']
 
@@ -166,5 +177,8 @@ if len(sys.argv) >= 2:
         print 'unknown cmd:', sys.argv[1]
         sys.exit(1)
 
+
 user_ids = load_group()
+print "loaded %d users" % len(user_ids)
+
 query_shelves(user_ids)
