@@ -13,11 +13,11 @@ pip install goodreads
 
 Reads|Year|Ratings|Book
 ---:|---:|---:|:---
-238|1950|2167591|1984 - George Orwell
-211|1993|1480351|The Alchemist - Paulo Coelho
-192|2003|12405|Maitreyi - Mircea Eliade
-182|2004|2899284|The Great Gatsby - F. Scott Fitzgerald
-181|2000|2272395|Pride and Prejudice - Jane Austen
+238|1950|2167591|[1984 - George Orwell](https://www.goodreads.com/book/show/5470.1984)
+211|1993|1480351|[The Alchemist - Paulo Coelho](https://www.goodreads.com/book/show/865.The_Alchemist)
+192|2003|12405|[Maitreyi - Mircea Eliade](https://www.goodreads.com/book/show/817199.Maitreyi)
+182|2004|2899284|[The Great Gatsby - F. Scott Fitzgerald](https://www.goodreads.com/book/show/4671.The_Great_Gatsby)
+181|2000|2272395|[Pride and Prejudice - Jane Austen](https://www.goodreads.com/book/show/1885.Pride_and_Prejudice)
 ...|||
 
 A complete result for a group with 3000 members is here: http://patraulea.com/goodreads/shelves_romania%20topbooks.html
