@@ -1,7 +1,7 @@
 ## Installation
-This lists the books of a GoodReads group's members.
+This lists the books of a Goodreads group's members, and sorts them by number of reads. Use it to search for the most read books in groups that are close to your interests.
 
-You will need to get a developer key from goodreads.com.
+You will need a free developer key from goodreads.com.
 
 Tested with Python 2.7. To install goodreads bindings:
 
