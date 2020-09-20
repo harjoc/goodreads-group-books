@@ -3,7 +3,7 @@ This lists the books of a Goodreads group's members, and sorts them by number of
 
 You will need a free developer key from goodreads.com.
 
-Tested with Python 2.7. To install goodreads bindings:
+Needs python 3.x and goodreads bindings:
 
 ```
 pip install goodreads
@@ -26,10 +26,10 @@ A complete result for a group with 3000 members is here: http://patraulea.com/go
 
 1. Copy config-example.py to config.py and fill in the API key. 
 
-2. Get the group members: `./listbooks.py members`. This will save them to the group_fn configured in config.py.
+2. Get the group members: `listbooks.py users`. This saves them to `group-id-users.json`.
 
-3. Get the books: `./listbooks.py`. This will create pickles for each user in shelves_dir as configured in config.py.
+3. Get the books: `listbooks.py books`. This saves `group-id/user-id.json` for each user in `group-id-users.json`.
 
-4. Sort by number of reads: `./sort.py shelves_dir > top.html`.
+4. Sort by number of reads: `sort.py > output.html`.
 
 There is a default of `min_reads = 5` in sort.py so books with less reads don't show up in the output. You can change it as needed.
